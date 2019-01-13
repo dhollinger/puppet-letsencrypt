@@ -7,6 +7,8 @@ describe 'letsencrypt::certonly' do
     end
 
     context "on #{os} based operating systems" do
+      puts "we are on facter version #{facts[:facterversion]}"
+      puts "operatingsystemrelease is #{facts[:operatingsystemrelease]} and operatingsystem is #{facts[:operatingsystem]}"
       let(:pre_condition) { "class { letsencrypt: email => 'foo@example.com', package_command => 'letsencrypt' }" }
 
       context 'with a single domain' do
